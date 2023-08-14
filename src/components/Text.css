@@ -1,0 +1,33 @@
+.text-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-portrait-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-portrait-lisa{
+    background-color: black;
+}
+
+.text-portrait-lisa p{
+    font-size: smaller;
+    background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1200px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg");
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+
+.text-portrait-ad p{
+    margin: 0;
+    font-size: 200px;
+    background: url("https://cdn.shopify.com/s/files/1/0849/4704/files/First-image_Fb-size_grande.jpg?10773543754915177139");
+    -webkit-background-clip: text;
+    color: transparent;
+}
