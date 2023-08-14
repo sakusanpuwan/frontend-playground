@@ -1,0 +1,16 @@
+.image-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.masonry-layout{
+    column-count: 4;
+    column-gap: 5px;
+    background-color: black;
+}
+
+.masonry-layout img{
+    width: 100%;
+}
