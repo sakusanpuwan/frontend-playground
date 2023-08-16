@@ -1,4 +1,6 @@
 import './Image.css'
+import { DigitalRain } from "react-digital-rain";
+
 
 const Image = () => {
     return(
@@ -21,6 +23,16 @@ const Image = () => {
             </div>
 
             <h2>Animated backgrounds</h2>
+
+            <div className='background-gradient-transition'>
+                <h3>background-gradient-transition</h3>
+            </div>
+
+            <div className='matrix-background'>
+                <h3>Matrix</h3>
+                <DigitalRain/>
+            </div>
+
         </div>
     )
 }
