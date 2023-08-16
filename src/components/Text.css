@@ -31,3 +31,11 @@
     -webkit-background-clip: text;
     color: transparent;
 }
+
+.typing-animation{
+    padding-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
