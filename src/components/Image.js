@@ -1,8 +1,10 @@
 import './Image.css'
 import { DigitalRain } from "react-digital-rain";
-
+import { Carousel } from 'antd';
 
 const Image = () => {
+
+
     return(
         <div className="image-container">
             <h1>Image</h1>
@@ -31,6 +33,18 @@ const Image = () => {
             <div className='matrix-background'>
                 <h3>Matrix</h3>
                 <DigitalRain/>
+            </div>
+
+            <h2>Carousel - antd</h2>
+            <div className='carousel'>
+                <Carousel autoplay effect='fade'>
+                    <img src='https://www.movieposters.com/cdn/shop/products/avengers-infinity-war_89e0d364_240x360_crop_center.progressive.jpg?v=1631200474' alt='movie poster'></img>
+                    <img src='https://www.movieposters.com/cdn/shop/products/ef4b93ef8f7157de3f97ae1ff5d21b56_0526bb98-1f4a-4da5-b928-b0025f5e6371_240x360_crop_center.progressive.jpg?v=1573585487' alt='movie poster'></img>
+                    <img src='https://www.movieposters.com/cdn/shop/products/950e439404c3d5eddd86ae876cec83bf_949b5045-2503-4883-bcd2-ff1f31f5b14c_240x360_crop_center.progressive.jpg?v=1573588746' alt='movie poster'></img>
+                    <img src='https://www.movieposters.com/cdn/shop/products/ed4796ac6feff9d2a6115406f964c928_6b200bda-fe71-4900-ad7f-903cdda50dab_240x360_crop_center.progressive.jpg?v=1573587596' alt='movie poster'></img>
+                    <img src='https://www.movieposters.com/cdn/shop/products/5cae019e64c0ee10ead36a00e60f0137_8b8714b2-b733-44ec-8f3f-f131a04915b5_240x360_crop_center.progressive.jpg?v=1614780406' alt='movie poster'></img>
+                    <img src='https://www.movieposters.com/cdn/shop/products/spiderverse.2ndadv_240x360_crop_center.progressive.jpg?v=1619633475' alt='movie poster'></img>
+                </Carousel>
             </div>
 
         </div>

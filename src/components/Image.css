@@ -45,4 +45,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+}
+
+.carousel{
+    height: 10vh;
+    width: 20vw;
 }
