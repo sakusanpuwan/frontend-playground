@@ -12,6 +12,8 @@ const Component = () => {
     const [password,setPassword] = useState();
     const [range,setRange] = useState(50);
 
+    const [profile,setProfile] = useState({});
+
     const handleButton = () =>{
         setCounter(counter + 1);
     }
@@ -46,6 +48,23 @@ const Component = () => {
         setRange(event.target.value)
     }
 
+    const handleChange = (event) => {
+        const {name, value} = event.target; // Target element that triggered event(change event for input field)
+        // event.target is object -> destructure object extract properties
+        // name = name attribute of DOM element
+        // value = current value of DOM element
+        // name & value can be used without constantly referring to event.target
+        setProfile((profile) => ({...profile,[name]:value}))
+        // ...profile creates copy of current profile without mutating directly original state
+        // [name]:value - object property assignment of name key and value
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        alert(JSON.stringify(profile,'',2))
+        setProfile({})
+    }
+
     useEffect(() => {
         setURL(window.location.href);
     },[])
@@ -59,7 +78,7 @@ const Component = () => {
             <h4>{tick}</h4>
             <input type="color"></input>
             <input type="date" onChange={handleDate} value={date}></input>
-            <h4>{date}</h4>
+            <h4>{date ?? 'No date'}</h4>
             <input type="datetime-local"></input>
             <input type="email"></input>
             <input type="file" onChange={handleImage}></input>
@@ -82,7 +101,34 @@ const Component = () => {
             <input type="search"></input>
             <input type="submit"></input>
             <input type="time"></input>
+            <button onClick={() => {alert('Alert')}}>alert</button>
+            <button onClick={() => {prompt('Name?')}}>prompt</button>
             <QRCode value={URL || '-'}/>
+            <h2>Form</h2>
+            <form onSubmit={handleSubmit}>
+                <input
+                    value={profile.firstName || ''} // ||'' Gives a default empty string if profile.firstName is undefined
+                    name="firstName"
+                    type="text"
+                    placeholder="First Name..."
+                    onChange={handleChange}
+                />
+                <input
+                    value={profile.birthday || ''}
+                    type="date"
+                    name="birthday"
+                    onChange={handleChange}
+                />
+                <input
+                    value={profile.password || ''}
+                    type="password"
+                    name="password"
+                    placeholder="Password..."
+                    onChange={handleChange}
+                />
+                <button type="submit">Submit</button>
+            </form>
+            
         </div>
     )
 }
