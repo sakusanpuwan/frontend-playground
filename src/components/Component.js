@@ -1,6 +1,8 @@
 import { QRCode } from "antd";
 import { useEffect, useState } from "react";
 import './Component.css'
+import top100Films from "../data/FilmData";
+import { Autocomplete, TextField } from "@mui/material";
 
 const Component = () => {
 
@@ -13,6 +15,9 @@ const Component = () => {
     const [range,setRange] = useState(50);
 
     const [profile,setProfile] = useState({});
+
+    const [autoValue,setAutoValue] = useState(null);
+    const [multiAutoValue, setMultiAutoValue] = useState([]);
 
     const handleButton = () =>{
         setCounter(counter + 1);
@@ -55,6 +60,7 @@ const Component = () => {
         // value = current value of DOM element
         // name & value can be used without constantly referring to event.target
         setProfile((profile) => ({...profile,[name]:value}))
+        //({}) curly brackets refer to a new object to be returned
         // ...profile creates copy of current profile without mutating directly original state
         // [name]:value - object property assignment of name key and value
     }
@@ -65,9 +71,12 @@ const Component = () => {
         setProfile({})
     }
 
+
+
     useEffect(() => {
         setURL(window.location.href);
     },[])
+    
 
     return(
         <div className="component-container">
@@ -128,6 +137,33 @@ const Component = () => {
                 />
                 <button type="submit">Submit</button>
             </form>
+            <Autocomplete
+                disablePortal
+                id="combo-box-demo"
+                sx={{width:300}}
+                options={top100Films}
+                filterSelectedOptions
+                renderInput={(params) => <TextField {...params} label="Movie" placeholder="Favorites"
+                />}
+                onChange={(event, chosenValue) => {setAutoValue(chosenValue)}}
+            />
+            {autoValue && <h3>{`Chosen film: ${autoValue.label}`}</h3>}
+
+            <Autocomplete
+                multiple
+                disablePortal
+                id="combo-box-demo"
+                sx={{width:300}}
+                options={top100Films}
+                getOptionLabel={(option) => option.label}
+                filterSelectedOptions
+                renderInput={(params) => <TextField {...params} label="Movie" placeholder="Favorites"
+                />}
+                onChange={(event,chosenValue) => {setMultiAutoValue([chosenValue, ...multiAutoValue])}}
+            />
+
+            {multiAutoValue[0] && multiAutoValue[0].map((film) => {return <h3>{film.label}</h3>})}  
+            {console.log(multiAutoValue)}   
             
         </div>
     )
